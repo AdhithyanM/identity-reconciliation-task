@@ -70,12 +70,18 @@ class IdentityService {
     // Given phoneNumber and email relates to 1 primary contact
     // check and create a new contact if we have new information
     else if (primaryContacts.length === 1) {
-      let isPresent: boolean =
-        primaryContacts[0].phoneNumber === phoneNumber &&
-        primaryContacts[0].email === email;
+      let isPresent: boolean = this.isMatching(
+        primaryContacts[0],
+        phoneNumber,
+        email
+      );
+
+      secondaryContacts = await this.contactRepository.findBy({
+        linkedId: primaryContacts[0].id,
+      });
 
       secondaryContacts.forEach((contact) => {
-        if (contact.phoneNumber === phoneNumber && contact.email === email) {
+        if (this.isMatching(contact, phoneNumber, email)) {
           isPresent = true;
         }
       });
@@ -104,9 +110,13 @@ class IdentityService {
           id: secondaryContacts[0].linkedId,
         });
 
+      secondaryContacts = await this.contactRepository.findBy({
+        linkedId: primaryContact!.id,
+      });
+
       let isPresent: boolean = false;
       secondaryContacts.forEach((contact) => {
-        if (contact.phoneNumber === phoneNumber && contact.email === email) {
+        if (this.isMatching(contact, phoneNumber, email)) {
           isPresent = true;
         }
       });
@@ -124,6 +134,22 @@ class IdentityService {
 
       return this.constructIdentityResponse(primaryContact!, secondaryContacts);
     }
+  }
+
+  private isMatching(
+    contact: Contact,
+    phoneNumber: number | undefined,
+    email: string | undefined
+  ): boolean {
+    let matching = true;
+    if (
+      phoneNumber &&
+      contact.phoneNumber &&
+      phoneNumber.toString() !== contact.phoneNumber
+    )
+      matching = false;
+    if (email && contact.email && email !== contact.email) matching = false;
+    return matching;
   }
 
   private constructIdentityResponse(
