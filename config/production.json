@@ -1,0 +1,10 @@
+{
+  "db": {
+    "host": "PGDB_HOST",
+    "port": "PGDB_PORT",
+    "username": "PGDB_USERNAME",
+    "password": "PGDB_PASSWORD"
+  },
+  "mode": "production",
+  "logLevel": "error"
+}

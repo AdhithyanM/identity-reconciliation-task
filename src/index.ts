@@ -3,6 +3,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
 import config from "config";
+import { loadDb } from "./setup/db";
 
 import routes from "./setup/routes";
 
@@ -10,6 +11,8 @@ const app = express();
 const port = config.get("app.port");
 
 (async () => {
+  await loadDb(); // initialize the database connection
+
   app.use(express.json({ limit: "10mb" })); // Parse incoming JSON payloads with a size limit of 10MB
   app.use(helmet()); // Use Helmet for security
   app.use(morgan("tiny")); // Use Morgan for logging request

@@ -2,5 +2,10 @@
   "app": {
     "port": 8081,
     "name": "Identity-Reconciliation-App"
-  }
+  },
+  "db": {
+    "name": "identity_reconciliation"
+  },
+  "mode": "default",
+  "logLevel": "debug"
 }
