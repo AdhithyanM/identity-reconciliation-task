@@ -5,6 +5,6 @@ import identityRoutes from "../modules/identity/index";
 const router: Router = express.Router();
 
 router.use("/identity", identityRoutes);
-// other entity specific routes
+// other domain specific routes
 
 export default router;
