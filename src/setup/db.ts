@@ -11,6 +11,8 @@ export const AppDataSource = new DataSource({
   password: config.get<string>("db.password"),
   database: config.get<string>("db.name"),
   entities: [Contact],
+  synchronize: true,
+  logging: config.get<string>("mode") === "development",
 });
 
 export const loadDb = async () => {
