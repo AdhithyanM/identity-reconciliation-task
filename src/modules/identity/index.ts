@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-import postIdentity from "./controllers/postIdentity";
+import { postIdentity } from "../identity/controllers/IdentityController";
 
 const router: Router = express.Router();
 
