@@ -1,5 +1,6 @@
 {
   "db": {
+    "name": "PGDB_NAME",
     "host": "PGDB_HOST",
     "port": "PGDB_PORT",
     "username": "PGDB_USERNAME",

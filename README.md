@@ -6,7 +6,7 @@ This project is a simple service for handling identity reconciliation using Type
 
 You can verify the endpoint yourself by visiting the following link:
 
-[Verify Endpoint](https://your-endpoint-url.com)
+[Verify Endpoint](https://identity-reconciliation-task-eclp.onrender.com/identity)
 
 ## Getting Started
 
@@ -25,7 +25,7 @@ Make sure you have the following installed on your machine:
 1. Clone the repository to your local machine using the following command:
 
 ```sh
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/AdhithyanM/identity-reconciliation-task.git
 ```
 
 2. Navigate into the project directory:
@@ -63,7 +63,7 @@ npm start
 
 ### API Documentation
 
-#### Endpoint: `/api/identity`
+#### Endpoint: `/identity`
 
 - **Method**: `POST`
 - **Description**: Finds or creates a contact based on the provided phone number and/or email.

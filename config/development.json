@@ -1,4 +1,7 @@
 {
+  "db": {
+    "name": "identity_reconciliation"
+  },
   "mode": "development",
   "logLevel": "debug"
 }

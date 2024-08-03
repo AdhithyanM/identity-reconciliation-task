@@ -4,7 +4,7 @@
     "name": "Identity-Reconciliation-App"
   },
   "db": {
-    "name": "identity_reconciliation",
+    "name": "PGDB_NAME",
     "host": "PGDB_HOST",
     "port": "PGDB_PORT",
     "username": "PGDB_USERNAME",
